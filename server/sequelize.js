@@ -6,7 +6,7 @@ dotenv.config();
 export const sequelize = new Sequelize(process.env.SQL_DATABASE, process.env.SQL_USER, process.env.SQL_PASSWORD, {
     host: process.env.SQL_HOST,
     dialect: 'postgres',
-    port: 5432,
+    port: 5432 || 4000,
     dialectOptions: {
       ssl: { rejectUnauthorized: false }
     }

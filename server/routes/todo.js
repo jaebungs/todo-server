@@ -2,8 +2,14 @@ import Sequelize from 'sequelize';
 import { sequelize} from '../sequelize.js';
 
 const Todo = sequelize.define('Todo', {
-    title: Sequelize.STRING,
-    description: Sequelize.STRING
+    title: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    description: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }        
 });
 
 const createTodo = async (req, res) => {
@@ -14,27 +20,24 @@ const createTodo = async (req, res) => {
                 title: todo,
                 description: description
             }).then((data)=>{
-                res.status(200).json({data})
+                res.status(200).json({data});
+                res.send('todo created')
                 console.log('Todo added');
             }).catch(()=>{
                 console.log('Todo creating failed. Something wrong.');
             })
-        })    
+        })
     } catch (err) {
-        res.status(500).json({message: 'Creat Todo Failed.'})
-        console.log(err)
+        res.status(500).json({message: 'Creat Todo Failed.'});
+        console.log(err);
     }
     
 }
 const getTodo = async (req, res) => {
     try {
-        Todo.findAll({
-            attribute: ['title']
-        }).then(data => {
-            data = data.map(value => value)
-            for (let i=0; i < data.length; i++){
-                console.log(data[i])
-            }
+        Todo.findAll().then(data => {
+            res.send(data);
+            console.log(data)
         })
     } catch (err) {
         res.status(500).json({ message: 'Creat Todo Failed.' });
