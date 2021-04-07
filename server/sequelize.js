@@ -14,9 +14,9 @@ export const sequelize = new Sequelize(process.env.SQL_DATABASE, process.env.SQL
 
 sequelize.authenticate()
 .then(()=>{
-  console.log('connection has been established.')
+  console.log('connection has been established.');
 })
 .catch((err)=>{
-  console.log('Unable to connect to the database', err)
+  console.log('Unable to connect to the database', err);
 })
 

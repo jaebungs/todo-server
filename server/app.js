@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from 'dotenv';
-import { getTodo, createTodo, deleteTodo } from './routes/todo.js';
+import { getTodo, createTodo, deleteTodo, updateTodo } from './routes/todo.js';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -15,12 +15,8 @@ dotenv.config();
 
 app.get('/', getTodo);
 app.post('/', createTodo);
+app.patch('/update', updateTodo);
 app.delete('/delete', deleteTodo);
-
-app.post('/test', (req, res) => {
-  console.log(req.body)
-  res.status(200).send({data: req.body})
-})
 
 app.listen(PORT, () => {
   console.log(`server started on ${PORT}`);
