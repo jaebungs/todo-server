@@ -108,7 +108,7 @@ var deleteTodo = /*#__PURE__*/function () {
             try {
               Todo.destroy({
                 where: {
-                  id: req.body.id
+                  id: req.params.id
                 }
               }).then(function () {
                 res.status(200).send({

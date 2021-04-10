@@ -12,7 +12,7 @@ export const sequelize = new Sequelize(process.env.SQL_DATABASE, process.env.SQL
   }
 });
 
-sequelize.authenticate()
+sequelize.sync()
 .then(()=>{
   console.log('connection has been established.');
 })

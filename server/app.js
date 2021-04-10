@@ -3,7 +3,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from 'dotenv';
-import { getTodo, createTodo, deleteTodo, updateTodo } from './routes/todo.js';
+import todoRouter from './routes/todo';
 
 const app = express();
 
@@ -13,10 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 dotenv.config();
 
 // routing
-
-app.get('/', getTodo);
-app.post('/', createTodo);
-app.patch('/update', updateTodo);
-app.delete('/delete', deleteTodo);
+app.use("/", todoRouter);
 
 export default app;

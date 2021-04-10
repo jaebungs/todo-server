@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./build",
     "build": "babel server --out-dir build",
-    "dev": "nodemon --exec babel-node ./server/app.js",
+    "dev": "nodemon --exec babel-node ./server",
     "lint": "eslint ./server/**/*.{js,json}",
     "prettier": "prettier --write --config ./.prettierrc.js ./server/**/*.{js,json}"
   },

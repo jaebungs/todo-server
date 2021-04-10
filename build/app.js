@@ -30,6 +30,6 @@ _dotenv["default"].config(); // routing
 app.get('/', _todo.getTodo);
 app.post('/', _todo.createTodo);
 app.patch('/update', _todo.updateTodo);
-app["delete"]('/delete', _todo.deleteTodo);
+app["delete"]('/delete/:id', _todo.deleteTodo);
 var _default = app;
 exports["default"] = _default;
