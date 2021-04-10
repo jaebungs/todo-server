@@ -1,3 +1,5 @@
+import "core-js/stable";
+import "regenerator-runtime";
 import express from "express";
 import cors from "cors";
 import dotenv from 'dotenv';
